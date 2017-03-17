@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+This simple AngularJS application was written by Phillip W. Reynolds
+on Friday, March 17, 2017, from 3:37 PM to 5:06 PM.
+-->
+<html ng-app="LunchCheck">
+    <head>
+        <title>Checking Your Lunch List</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/css.css">
+    </head>
+    <body>
+        <h1>Lunch List Checker</h1>
+        <div ng-controller="LunchCheckController">
+            <div>
+                Please enter the contents of your lunch as a list of items
+                separated by commas.
+            </div>
+            <input type="text" ng-model="lunchList" style="border: solid {{borderColor}} 10px;">
+            <br>
+            <button ng-click="checkLunchList()">Check If Too Much</button>
+            <div id='message' style="color: {{fontColor}}">{{CheckedLunchList}}</div>
+        </div>
+        <script src="js/angular.min.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
