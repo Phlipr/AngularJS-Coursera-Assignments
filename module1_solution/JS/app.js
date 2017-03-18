@@ -3,6 +3,8 @@
  */
 
 (function (){
+    'use strict';
+    
     angular.module('LunchCheck', [])
             .controller('LunchCheckController', LunchCheckController);
     
@@ -15,15 +17,15 @@
         $scope.fontColor = "black";
         
         $scope.checkLunchList = function (){
-            $scope.parsedLunchList = $scope.parseLunchList();
-            $scope.modifiedLunchList = $scope.removeEmptyItems();
-            $scope.stateOfLunchList = $scope.checkStateOfLunchList();
-            if ($scope.stateOfLunchList == 0){
+            var parsedLunchList = parseLunchList();
+            var modifiedLunchList = removeEmptyItems(parsedLunchList);
+            var stateOfLunchList = checkStateOfLunchList(modifiedLunchList);
+            if (stateOfLunchList === 0){
                 $scope.CheckedLunchList = "Please enter data first.";
                 $scope.borderColor = "red";
                 $scope.fontColor = "red";
             }
-            else if ($scope.stateOfLunchList > 0 && $scope.stateOfLunchList < 4){
+            else if (stateOfLunchList > 0 && stateOfLunchList < 4){
                 $scope.CheckedLunchList = "Enjoy!";
                 $scope.borderColor = "green";
                 $scope.fontColor = "green";
@@ -33,27 +35,28 @@
                 $scope.borderColor = "green";
                 $scope.fontColor = "green";
             }
-        }
+        };
         
-        $scope.parseLunchList = function (){
+        var parseLunchList = function (){
             var parsedLunchList = $scope.lunchList.replace(new RegExp(' ', 'g'),'');
             parsedLunchList = parsedLunchList.split(',');
             return parsedLunchList;
         };
         
-        $scope.removeEmptyItems = function (){
+        var removeEmptyItems = function (parsedLunchList){
             var modifiedLunchList = new Array();
-            for (item in $scope.parsedLunchList) {
-                if ($scope.parsedLunchList[item] != '') {
-                    modifiedLunchList.push($scope.parsedLunchList[item]);
+            var item = 0;
+            for (item in parsedLunchList) {
+                if (parsedLunchList[item] !== '') {
+                    modifiedLunchList.push(parsedLunchList[item]);
                 }
             }
             return modifiedLunchList;
-        }
+        };
         
-        $scope.checkStateOfLunchList = function(){
-            return $scope.modifiedLunchList.length;
-        }
+        var checkStateOfLunchList = function(modifiedLunchList){
+            return modifiedLunchList.length;
+        };
         
         
     }
