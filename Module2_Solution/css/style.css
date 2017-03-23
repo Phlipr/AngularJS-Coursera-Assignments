@@ -1,0 +1,18 @@
+/* 
+    Created on : Mar 22, 2017, 6:08:12 PM
+    Finished: Mar 22, 2017, 7:28 PM
+    Author     : Phillip W. Reynolds
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: black;
+}
+
+.col-sm-6 {
+    border: black solid 1px;
+    height: 300px;
+}
