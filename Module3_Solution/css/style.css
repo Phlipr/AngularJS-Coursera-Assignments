@@ -6,3 +6,11 @@ This Single Page Application using AngularJS was prepared for the Coursera.org
 class AngularJS presented by Yaakov Chaikin.
 */
 
+div.SearchTermEmpty {
+    display: none;
+}
+
+div.error1, div.error2{
+    display: none;
+    color: red;
+}
