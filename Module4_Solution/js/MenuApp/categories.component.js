@@ -12,7 +12,7 @@
   });
 
   categoriesController.$inject = ['MenuDataService'];
-  categoriesController = function () {
+  function categoriesController (MenuDataService) {
     var $ctrl = this;
 
     var promise = MenuDataService.getAllCategories();
