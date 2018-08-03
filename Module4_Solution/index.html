@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+Author: Phillip W. Reynolds
+
+This Single Page Application was created for the
+AngularJS course on Coursera.org that was created by
+Yaakov Chaikin.
+-->
+
+<html lang="en" dir="ltr" ng-app="MenuApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/bootstrap.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./lib/angular.min.js" charset="utf-8"></script>
+    <script src="./lib/angular-ui-router.min.js" charset="utf-8"></script>
+
+    <!-- Loading Modules -->
+    <script src="./js/MenuApp/menuApp.module.js" charset="utf-8"></script>
+    <script src="./js/MenuApp/data.module.js" charset="utf-8"></script>
+
+    <!-- Loading Artifacts for modules -->
+    <script src="./js/MenuApp/menudata.service.js" charset="utf-8"></script>
+    <script src="./js/MenuApp/categories.component.js" charset="utf-8"></script>
+
+    <title>Chinese Menu App</title>
+  </head>
+  <body>
+    <h1 class="text-center">Chinese Menu App</h1>
+    <categories></categories>
+  </body>
+</html>
