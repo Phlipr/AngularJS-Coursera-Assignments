@@ -30,6 +30,19 @@
           return MenuDataService.getAllCategories();
         }]
       }
+    })
+
+    //Menu Items Page
+    .state('items', {
+      url: '/items/{itemId}',
+      templateUrl: 'js/MenuApp/templates/menu-itemsview.template.html',
+      controller: 'MenuItemsController as menuItemsView',
+      resolve: {
+        items: ['MenuDataService', '$stateParams',
+                function (MenuDataService, $stateParams){
+                  return MenuDataService.getItemsForCategory($stateParams.itemId);
+                }]
+      }
     });
   }
 })();

@@ -1,0 +1,27 @@
+<div class="container">
+  <ul>
+    <li ng-repeat="item in $ctrl.items">
+      <div><strong>Name:</strong> {{ item.name }}</div>
+      <div ng-show="item.description">
+        <strong>Description:</strong> {{ item.description }}
+      </div>
+      <div ng-show="item.price_small">
+        <strong>
+          Price:
+          <span ng-show="item.small_portion_name">
+            (for {{ item.small_portion_name }})
+          </span>
+        </strong> {{ item.price_small | currency }}
+      </div>
+      <div ng-show="item.price_large">
+        <strong>
+          Price:
+          <span ng-show="item.large_portion_name">
+            (for {{ item.large_portion_name }})
+          </span>
+        </strong> {{ item.price_large | currency }}
+      </div>
+      <br></br>
+    </li>
+  </ul>
+</div>
