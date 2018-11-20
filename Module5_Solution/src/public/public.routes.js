@@ -43,13 +43,25 @@ function routeConfig ($stateProvider) {
     })
     .state('public.myInfo', {
       url: '/myInfo',
-      templateUrl: 'src/public/myInfo/myInfo.html'
+      templateUrl: 'src/public/myInfo/myInfo.html',
+      controller: 'MyInfoController',
+      controllerAs: 'MyInfo',
+      resolve: {
+        menuItems: ['MenuService', function (MenuService) {
+          return MenuService.getMenuItems();
+        }]
+      }
     })
     .state('public.signUp', {
       url: '/signUp',
       templateUrl: 'src/public/signUp/signUp.html',
       controller: 'SignUpFormController',
-      controllerAs: 'SignUpCtrl'
+      controllerAs: 'SignUpCtrl',
+      resolve: {
+        menuItemsShortNames: ['MenuService', function (MenuService) {
+          return MenuService.getMenuItemsShortNames();
+        }]
+      }
     });
 }
 })();

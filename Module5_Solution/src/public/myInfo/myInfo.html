@@ -1,5 +1,37 @@
 <div class="container">
 
-    Yeah!
+    <div ng-show='!MyInfo.user'>
+      Not signed up yet!
+
+      <a ui-sref="public.signUp">Sign Up Now!</a>
+    </div>
+
+    <div ng-show='MyInfo.user'>
+
+      <h2>Registered Information:</h2>
+
+      <br>
+
+      <div>
+        Name = {{MyInfo.user.firstName}} {{MyInfo.user.lastName}}
+      </div>
+
+      <div>
+        Email = {{MyInfo.user.email}}
+      </div>
+
+      <div>
+        Phone Number = {{MyInfo.user.phone}}
+      </div>
+
+      <br>
+
+      <h2>Favorite Menu Item:</h2>
+
+      <br>
+
+      <menu-item menu-item="MyInfo.favoriteItem"></menu-item>
+
+    </div>
 
 </div>

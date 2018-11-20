@@ -31,6 +31,9 @@
       <span ng-if='(signUp.email.$error.required && signUp.email.$touched)'>
         Please make sure to enter a valid email (Handle@domain.com).
       </span>
+      <span ng-if='(signUp.email.$error.email && signUp.email.$touched)'>
+        Please make sure your email address is valid: Handle@domain.com.
+      </span>
       <br>
 
       <input type='text' name='phone' placeholder='Phone Number'
@@ -39,14 +42,18 @@
         pattern="(\d{3})-(\d{3})-(\d{4})"></input>
 
       <span ng-if='(signUp.phone.$error.required && signUp.phone.$touched)'>
-        Please make sure to enter the phone number in ###-###-#### format.
+        Please make sure to enter your phone number.
+      </span>
+      <span ng-if='(signUp.phone.$error.pattern && signUp.phone.$touched)'>
+        Please make sure to enter your phone number in ###-###-#### format.
       </span>
       <br>
 
       <input type='text' name='favorite' placeholder='The menu number of your favorite dish.'
         ng-model='signUp.user.favorite'
         required
-        ng-maxlength='5'></input>
+        ng-maxlength='5'
+        favorite-on-menu></input>
 
       <span ng-if='(signUp.favorite.$error.required && signUp.favorite.$touched)'>
         Please make sure to enter the menu number of your favorite dish.
@@ -55,12 +62,20 @@
       <span ng-if='(signUp.favorite.$error.maxlength && signUp.favorite.$touched)'>
         Menu number is too long.
       </span>
+      <span ng-if='(signUp.favorite.$error.favoriteOnMenu && signUp.favorite.$touched)'>
+
+        Menu favorite is not on the menu.
+
+      </span>
       <br>
 
       <button
         ng-disabled="signUp.$invalid"
-        ng-click="SignUpCtrl.submit()">Submit</button>
+        ng-click="SignUpCtrl.submit(signUp.user)">Submit</button>
 
     </form>
   </fieldset>
+  <div ng-show=SignUpCtrl.completed>
+    Your information has been saved!
+  </div>
 </div>
